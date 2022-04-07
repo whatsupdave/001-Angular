@@ -1,18 +1,38 @@
-<div>Čia bus puslapio body dalis</div>
-<div>
-    <input type="number" id="ugis" name="ugis" [(ngModel)]="ugis">
-    <br>
-    <input type="number" id="svoris" name="svoris" [(ngModel)]="svoris">
-    <br>
-    <button type="button" (click) = "skaiciuoti()">Skaiciuoti</button>
-    <br>
-    <div *ngIf="kmi!=0 && kmi<=25">
-        Jusu svoris normalus. KMI: <strong>{{ kmi }}</strong>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                KMI Skaičiuoklė
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="" class="form-label">Įveskite ūgį</label>
+                    <input class="form-control" type="number" id="ugis" name="ugis" [(ngModel)]="ugis">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Įveskite ūgį</label>
+                    <input class="form-control" type="number" id="svoris" name="svoris" [(ngModel)]="svoris">
+                </div>
+                <button class="btn btn-success" type="button"  (click)="skaiciuoti()">Skaičiuoti</button>
+            </div>
+        </div>
     </div>
-    <div *ngIf="kmi!=0 && kmi>=25">
-        Eik sportuot. KMI: <strong>{{ kmi }}</strong>
-    </div>
-    <div *ngIf="kmi==0">
-        Iveskite svori ir paspauskite skaiciuoti
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Rezultatai
+            </div>
+            <div class="card-body">
+                <div *ngIf="kmi!=0 && kmi<=25" >
+                    Jūsų svoris normalus. KMI: <strong>{{ kmi }}</strong>
+                </div>
+                <div *ngIf="kmi!=0 && kmi>25">
+                    Jūsų turite antsvorio. KMI: <strong>{{ kmi }}</strong>
+                </div>
+                <div *ngIf="kmi==0">
+                Iveskite svori ir paspauskite skaičiuoti
+                </div>
+            </div>
+        </div>
     </div>
 </div>
